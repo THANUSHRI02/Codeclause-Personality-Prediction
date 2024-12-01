@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Personality Prediction Tool</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Full-Screen Section Styling */
+.screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#intro {
+    background-color: #4e73df;
+    color: white;
+}
+
+.header-img {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+/* Features Section */
+#features {
+    background-color: #f8f9fc;
+}
+
+.features h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #4e73df;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 900px;
+}
+
+.feature-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+.feature-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.feature-card h3 {
+    font-size: 1.3em;
+    color: #4e73df;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #555;
+}
+
+/* How It Works Section */
+#how-it-works {
+    background-color: #f4f4f9;
+}
+
+.how-it-works h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #4e73df;
+}
+
+.workflow-img {
+    width: 80%;
+    max-width: 700px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.how-it-works p, .how-it-works ol {
+    color: #555;
+}
+
+.how-it-works ol {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+.how-it-works ol li {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.9em;
+    background-color: #333;
+    color: #f4f4f9;
+    width: 100%;
+    position: relative;
+}
+
+    </style>
+</head>
+<body>
+    <section class="screen" id="intro">
+        <header>
+            <img src="images/personality-intro.jpg" alt="Introduction Image" class="header-img">
+            <h1>Welcome to the Personality Prediction Tool</h1>
+            <p>Analyze CVs and uncover personality traits to gain deeper insights into candidates.</p>
+        </header>
+    </section>
+
+    <!-- Section 2: Features -->
+    <section class="screen" id="features">
+        <h2>Features</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <img src="images/analysis.jpg" alt="Personality Analysis" class="feature-img">
+                <h3>Personality Trait Analysis</h3>
+                <p>Gain insight into personality characteristics like extroversion, agreeableness, and more.</p>
+            </div>
+            <div class="feature-card">
+                <img src="images/cv-parsing.jpg" alt="CV Parsing" class="feature-img">
+                <h3>CV Parsing</h3>
+                <p>Automatically extract educational background, work experience, skills, and achievements from CVs.</p>
+            </div>
+            <div class="feature-card">
+                <img src="images/report.jpg" alt="Detailed Reports" class="feature-img">
+                <h3>Detailed Reports</h3>
+                <p>Receive a comprehensive analysis with easy-to-understand personality scores and visualizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: How It Works -->
+    <section class="screen" id="how-it-works">
+        <h2>How It Works</h2>
+        <img src="images/workflow.jpg" alt="Workflow Diagram" class="workflow-img">
+        <p>This tool processes uploaded CVs through advanced natural language processing and machine learning techniques:</p>
+        <ol>
+            <li><strong>Step 1:</strong> Upload the CV file in the designated section.</li>
+            <li><strong>Step 2:</strong> The system extracts relevant information and applies personality trait analysis.</li>
+            <li><strong>Step 3:</strong> View a detailed report with personality trait predictions and key insights.</li>
+        </ol>
+    </section>
+    
+    <div class="container">
+        <h1>Personality Prediction</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="resume" accept=".txt,.pdf,.docx" required>
+            <button type="submit">Upload Resume</button>
+        </form>
+
+        {% if scores %}
+            <h2>Predicted Personality Traits:</h2>
+            <ul>
+                {% for trait, score in scores.items() %}
+                    <li>{{ trait }}: {{ score }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <footer>
+        <p>&copy; 2024 Personality Prediction Tool</p>
+    </footer>
+</body>
+</html>
+

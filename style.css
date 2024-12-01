@@ -1,0 +1,120 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #4e73df;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Features Section */
+.features {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.features h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #4e73df;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+.feature-card h3 {
+    font-size: 1.3em;
+    color: #4e73df;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #555;
+    font-size: 1em;
+}
+
+/* How It Works Section */
+.how-it-works {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.how-it-works h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #4e73df;
+}
+
+.how-it-works p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.how-it-works ol {
+    text-align: left;
+    color: #333;
+}
+
+.how-it-works ol li {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    color: #aaa;
+    font-size: 0.9em;
+}
